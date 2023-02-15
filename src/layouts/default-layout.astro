@@ -1,0 +1,71 @@
+---
+type Props = {
+  title: string;
+  description: string;
+};
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="preload"
+      href="/font.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body class="bg-zinc-100">
+    <div class="py-4 md:py-8 print:py-0">
+      <slot />
+    </div>
+  </body>
+</html>
+
+<style>
+  @font-face {
+    font-family: 'Mona Sans';
+    src: url('/font.woff2') format('woff2');
+    font-weight: 200 900;
+    font-stretch: 75% 125%;
+    font-display: swap;
+  }
+
+  html {
+    font-family: 'Mona Sans', sans-serif;
+  }
+
+  @media print {
+    html {
+      font-family: 'Mona Sans', sans-serif;
+      font-size: 0.9rem;
+    }
+  }
+</style>
+
+<style is:global>
+  .md-content ul {
+    list-style: disc;
+    padding-left: 1rem;
+  }
+
+  .md-content ul li:not(:last-child) {
+    margin-bottom: 0.25rem;
+  }
+
+  .md-content a {
+    @apply text-purple-500 hover:underline print:text-black;
+  }
+
+  .md-content strong {
+    @apply font-medium;
+  }
+</style>

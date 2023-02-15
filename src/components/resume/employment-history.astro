@@ -1,0 +1,13 @@
+---
+import { getCollection } from 'astro:content';
+import BriefcaseIcon from '../icons/briefcase-icon.astro';
+import ItemList from './item-list.astro';
+import Section from './section.astro';
+
+const data = await getCollection('experience');
+---
+
+<Section title="Employment History">
+  <BriefcaseIcon slot="icon" />
+  <ItemList data={data} />
+</Section>

@@ -1,0 +1,70 @@
+---
+import Page from '../page.astro';
+import { Image } from '@astrojs/image/components';
+import constants from '../../constants';
+import EmploymentHistory from './employment-history.astro';
+import VolunteerWork from './volunteer-work.astro';
+import Internships from './internships.astro';
+import Education from './education.astro';
+import Profile from './profile.astro';
+import Link from '../link.astro';
+---
+
+<Page>
+  <div class="flex items-center gap-8">
+    <div class="h-24 aspect-square rounded-md bg-gray-100 print:h-16">
+      <Image
+        src="/me.png"
+        alt="Me"
+        height={1024}
+        width={1024}
+        format="webp"
+        fit="cover"
+      />
+    </div>
+    <div class="leading-4">
+      <h1 class="text-4xl font-bold print:text-2xl">{constants.name}</h1>
+      <p class="text-gray-500">{constants.title}</p>
+    </div>
+  </div>
+
+  <main class="pt-8 grid md:grid-cols-4 gap-12 print:grid-cols-4">
+    <div
+      class="col-span-3 space-y-8 print:space-y-2 row-start-2 md:row-start-auto print:row-start-auto"
+    >
+      <Profile />
+      <EmploymentHistory />
+      <VolunteerWork />
+      <Internships />
+      <Education />
+    </div>
+
+    <div class="space-y-4">
+      <div>
+        <h4 class="font-semibold pb-3">Details</h4>
+
+        <div class="text-sm space-y-2">
+          <p>{constants.location}</p>
+          <p>
+            <Link href={`tel:${constants.phone}`}>{constants.phone}</Link>
+          </p>
+          <p>
+            <Link href={`mailto:${constants.email}`}>{constants.email}</Link>
+          </p>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-semibold pb-3">Links</h4>
+
+        <div class="text-sm space-y-2">
+          <p>
+            <Link href={constants.github}>GitHub</Link>
+          </p>
+          <p>
+            <Link href={constants.linkedin}>LinkedIn</Link>
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+</Page>

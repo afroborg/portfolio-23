@@ -1,0 +1,14 @@
+---
+import { getCollection } from 'astro:content';
+import BookIcon from '../icons/book-icon.astro';
+import ItemList from './item-list.astro';
+import Section from './section.astro';
+
+const data = await getCollection('internships');
+---
+
+<Section title="Internships">
+  <BookIcon slot="icon" />
+
+  <ItemList data={data} />
+</Section>

@@ -1,0 +1,13 @@
+---
+import { getCollection } from 'astro:content';
+import HeartCheckIcon from '../icons/heart-check-icon.astro';
+import ItemList from './item-list.astro';
+import Section from './section.astro';
+
+const data = await getCollection('volunteering');
+---
+
+<Section title="Volunteer Work">
+  <HeartCheckIcon slot="icon" />
+  <ItemList data={data} />
+</Section>

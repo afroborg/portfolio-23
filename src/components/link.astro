@@ -1,0 +1,27 @@
+---
+import LinkExternalIcon from './icons/link-external-icon.astro';
+
+type Props = {
+  href: string;
+};
+
+const { href } = Astro.props;
+
+const isInternal = href.startsWith('/');
+---
+
+<a
+  href={href}
+  target={!isInternal ? '_blank' : null}
+  class="text-purple-600 flex items-center gap-2 hover:underline print:text-black"
+>
+  <slot />
+
+  {
+    !isInternal && (
+      <span class="w-3 print:hidden">
+        <LinkExternalIcon />
+      </span>
+    )
+  }
+</a>

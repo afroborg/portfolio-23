@@ -1,0 +1,16 @@
+---
+import type { Collection } from '../../models/collection';
+import { sortCollection } from '../../utils/sort-collection';
+import Item from './item.astro';
+
+type Props = {
+  data: Collection[];
+};
+
+const { data } = Astro.props;
+const sorted = sortCollection(data);
+---
+
+<div class="space-y-4 print:space-y-2">
+  {sorted.map((item) => <Item {...item} />)}
+</div>

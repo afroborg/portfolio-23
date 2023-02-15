@@ -1,0 +1,13 @@
+---
+import constants from '../../constants';
+import UserIcon from '../icons/user-icon.astro';
+import Section from './section.astro';
+---
+
+<Section title="Profile">
+  <UserIcon slot="icon" />
+
+  <p class="text-sm">
+    {constants.description}
+  </p>
+</Section>

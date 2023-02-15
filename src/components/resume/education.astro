@@ -1,0 +1,13 @@
+---
+import { getCollection } from 'astro:content';
+import GraduationHatIcon from '../icons/graduation-hat-icon.astro';
+import ItemList from './item-list.astro';
+import Section from './section.astro';
+
+const data = await getCollection('education');
+---
+
+<Section title="Education">
+  <GraduationHatIcon slot="icon" />
+  <ItemList data={data} />
+</Section>

@@ -1,0 +1,19 @@
+---
+import type { Collection } from '../../models/collection';
+
+type Props = Collection;
+
+const { data, render } = Astro.props;
+const { Content } = await render();
+---
+
+<article>
+  <h3 class="font-medium">{data.title} at {data.company}</h3>
+  <p class="text-xs text-gray-500 pb-1">
+    <time>{data.start} - {data.end ?? 'Present'}</time>
+  </p>
+
+  <div class="text-sm md-content">
+    <Content />
+  </div>
+</article>
