@@ -1,7 +1,7 @@
 ---
 title: 'IoT Engineer'
 company: 'E.ON'
-start:  June 2021
+start: June 2021
 end: June 2021,
 techologies: ['Grafana', 'Go', 'gRPC', 'Postgres', 'React']
 ---

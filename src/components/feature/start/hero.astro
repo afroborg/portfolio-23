@@ -1,0 +1,25 @@
+---
+import constants from '../../../constants';
+import Routes from '../../../constants/routes';
+import Button from '../../button.astro';
+import ScrollSection from '../../scrolling/scroll-section.astro';
+---
+
+<ScrollSection class="max-w-4xl">
+  <div class="space-y-8">
+    <div class="space-y-2">
+      <span class="text-primary-yellow md:text-lg">Hej! My name is</span>
+
+      <h1 class="text-4xl font-black font-header md:text-8xl">
+        {constants.name}
+      </h1>
+
+      <p class="opacity-70 text-sm md:text-lg max-w-lg">
+        I'm a {constants.title}. Let's build some products that your clients
+        love to use!
+      </p>
+    </div>
+
+    <Button href={Routes.Contact}>Get in touch</Button>
+  </div>
+</ScrollSection>

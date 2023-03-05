@@ -6,6 +6,20 @@ type Props = {
 const { class: className } = Astro.props;
 ---
 
-<div class:list={[className, 'h-[100dvh]']}>
+<div
+  data-scroll-span
+  class:list={[className, 'h-[100dvh]', 'px-6 md:px-28 scroll-smooth']}
+>
   <slot />
 </div>
+
+<style>
+  [data-scroll-span] {
+    scroll-snap-type: y mandatory;
+    overflow: auto;
+  }
+
+  :global([data-scroll-span] section) {
+    scroll-snap-align: start;
+  }
+</style>

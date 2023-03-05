@@ -12,5 +12,7 @@ const { href } = Astro.props;
   rel="noreferrer"
   class="h-5 w-5 text-white/70 hover:text-primary-yellow"
 >
-  <slot />
+  <span class="pointer-events-none">
+    <slot />
+  </span>
 </a>

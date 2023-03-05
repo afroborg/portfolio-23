@@ -1,6 +1,6 @@
 ---
 import Navbar from '../components/layout/navbar.astro';
-// import MouseCursor from '../components/mouse-cursor.svelte';
+import MouseCursor from '../components/mouse-cursor.svelte';
 import '@fontsource/outfit/800.css';
 import Meta from '../components/meta.astro';
 import BottomInfo from '../components/layout/bottom-info.astro';
@@ -20,13 +20,14 @@ const { title, description, class: className = '' } = Astro.props;
   <body class="bg-primary-black text-white">
     <Navbar />
 
-    <main class:list={[className, 'px-6 md:px-28']}>
+    <main class:list={[className, 'pb-12']}>
       <slot />
     </main>
 
     <BottomInfo />
 
-    <!-- <MouseCursor client:idle /> -->
+    <MouseCursor client:idle />
+
     <style>
       @font-face {
         font-family: 'Hubot Sans';

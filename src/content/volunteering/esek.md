@@ -2,7 +2,20 @@
 title: 'Software Engineer'
 company: 'E-Sektionen inom TLTH'
 start: June 2021
-technologies: ['Svelte', 'React', 'Rust', 'Go', 'Docker', 'CI/CD', 'GH Actions', 'Typescript', 'GraphQL', 'REST', 'SQL']
+technologies:
+  [
+    'Svelte',
+    'React',
+    'Rust',
+    'Go',
+    'Docker',
+    'CI/CD',
+    'GH Actions',
+    'Typescript',
+    'GraphQL',
+    'REST',
+    'SQL',
+  ]
 ---
 
 - Responsible for infrastructure and development in the guild.

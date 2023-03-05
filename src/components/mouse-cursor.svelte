@@ -12,6 +12,7 @@
       element.style.setProperty('--x', `${pageX}px`);
       element.style.setProperty('--y', `${pageY}px`);
 
+      // check if the mouse is over a link or button, or if the parent is a link or button
       if (event.target instanceof HTMLElement) {
         const { tagName } = event.target;
 
@@ -24,6 +25,7 @@
     };
 
     window.addEventListener('mousemove', handleMouseMove);
+    document.body.classList.add('custom-cursor');
 
     return {
       destroy: () => {
@@ -41,7 +43,7 @@
 />
 
 <style lang="postcss">
-  :global(html, body, a, button) {
+  :global(body.custom-cursor *) {
     cursor: none;
   }
 

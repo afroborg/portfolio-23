@@ -7,18 +7,18 @@ import BottomEmail from './bottom-email.astro';
 import BottomSocial from './bottom-social.astro';
 ---
 
-<div
+<!-- <div
   class="fixed bottom-0 px-12 hidden md:flex items-end justify-between left-0 right-0 text-sm"
->
-  <FixedInfo>
-    <BottomSocial href={constants.github}>
-      <GithubIcon />
-    </BottomSocial>
+> -->
+<FixedInfo class="left-12">
+  <BottomSocial href={constants.github}>
+    <GithubIcon />
+  </BottomSocial>
 
-    <BottomSocial href={constants.linkedin}>
-      <LinkedinIcon />
-    </BottomSocial>
-  </FixedInfo>
+  <BottomSocial href={constants.linkedin}>
+    <LinkedinIcon />
+  </BottomSocial>
+</FixedInfo>
 
-  <BottomEmail />
-</div>
+<BottomEmail />
+<!-- </div> -->

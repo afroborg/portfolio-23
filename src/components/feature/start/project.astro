@@ -1,0 +1,40 @@
+---
+import { Image } from '@astrojs/image/components';
+import Routes from '../../../constants/routes';
+
+type Props = {
+  image: string;
+  title: string;
+  slug: string;
+};
+
+const { title, image, slug } = Astro.props;
+
+const height = 800;
+const aspectRatio = 16 / 9;
+const width = height * aspectRatio;
+---
+
+<a href={Routes.Project(slug)} class="relative group">
+  <div
+    class="flex flex-col items-center justify-center absolute inset-0 bg-primary-black/30 rounded-md group-hover:bg-primary-black/10 pointer-events-none"
+  >
+  </div>
+
+  <div
+    class="absolute -bottom-4 left-4 bg-white px-6 py-3 rounded-sm w-fit text-black font-semibold group-hover:-bottom-2 transition-all text-sm pointer-events-none"
+  >
+    {title}
+  </div>
+
+  <Image
+    src={`/images/${image}`}
+    alt={title}
+    height={height}
+    width={width}
+    format="webp"
+    fit="cover"
+    position="top"
+    class="rounded-md pointer-events-none"
+  />
+</a>
