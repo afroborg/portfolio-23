@@ -1,8 +1,8 @@
 ---
-import Routes from '../constants/routes';
-import Button from './button.astro';
-import Link from './link.astro';
-import OutlineText from './outline-text.astro';
+import Routes from '../../constants/routes';
+import Button from '../button.astro';
+import Link from '../link.astro';
+import OutlineText from '../outline-text.astro';
 
 const links = [
   {
@@ -33,7 +33,7 @@ const isActive = (href: string) => {
 };
 ---
 
-<header class="fixed top-0 left-0 right-0 px-6 md:px-24 py-8">
+<header class="fixed top-0 left-0 right-0 px-6 md:px-12 py-8">
   <div class="flex items-center justify-between">
     <a href={Routes.Home} class="text-5xl font-black flex">
       <OutlineText>A</OutlineText>

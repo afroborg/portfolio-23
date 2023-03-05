@@ -1,0 +1,28 @@
+---
+import constants from '../constants';
+
+type Props = {
+  title?: string | undefined;
+  description?: string;
+};
+
+const { title, description } = Astro.props;
+---
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width" />
+  <link
+    rel="preload"
+    href="/fonts/hubot-sans.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  />
+  <meta name="generator" content={Astro.generator} />
+  <title>
+    {title ? `${title} | ` : ''}{constants.name} - {constants.title}
+  </title>
+  <meta name="description" content={description} />
+</head>

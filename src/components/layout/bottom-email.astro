@@ -1,0 +1,14 @@
+---
+import constants from '../../constants';
+import FixedInfo from '../fixed-info.astro';
+---
+
+<FixedInfo>
+  <a
+    href={`mailto:${constants.email}`}
+    target="_blank"
+    class="vm-rl text-white/60 hover:text-primary-yellow tracking-wider font-light"
+  >
+    {constants.email}
+  </a>
+</FixedInfo>

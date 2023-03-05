@@ -1,0 +1,24 @@
+---
+import constants from '../../constants';
+import FixedInfo from '../fixed-info.astro';
+import GithubIcon from '../icons/github-icon.astro';
+import LinkedinIcon from '../icons/linkedin-icon.astro';
+import BottomEmail from './bottom-email.astro';
+import BottomSocial from './bottom-social.astro';
+---
+
+<div
+  class="fixed bottom-0 px-12 hidden md:flex items-end justify-between left-0 right-0 text-sm"
+>
+  <FixedInfo>
+    <BottomSocial href={constants.github}>
+      <GithubIcon />
+    </BottomSocial>
+
+    <BottomSocial href={constants.linkedin}>
+      <LinkedinIcon />
+    </BottomSocial>
+  </FixedInfo>
+
+  <BottomEmail />
+</div>
