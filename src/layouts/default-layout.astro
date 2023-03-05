@@ -22,7 +22,7 @@ const { title, description, class: className = '' } = Astro.props;
   <body class="bg-primary-black text-white">
     <Navbar />
 
-    <main class:list={[className, 'pb-24']}>
+    <main class:list={[className, 'pb-24 px-8 xl:px-0']}>
       <slot />
 
       <BottomCta />
