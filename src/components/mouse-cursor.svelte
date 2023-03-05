@@ -63,6 +63,7 @@
     animation: pulse 2s infinite;
     pointer-events: none;
     transition: transform 0.2s ease;
+    z-index: 9999;
   }
 
   [data-cursor]:global([data-target='link']) {

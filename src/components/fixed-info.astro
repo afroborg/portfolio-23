@@ -16,11 +16,26 @@ const { class: className } = Astro.props;
 </div>
 
 <style lang="scss">
-  div::after {
-    content: '';
-    height: 120px;
-    width: 1px;
-    background-color: theme('colors.white / 50%');
-    display: block;
+  div {
+    animation: appear 500ms 2.5s ease-in-out both;
+
+    &::after {
+      content: '';
+      height: 120px;
+      width: 1px;
+      background-color: theme('colors.white / 50%');
+      display: block;
+    }
+  }
+
+  @keyframes appear {
+    0% {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 </style>

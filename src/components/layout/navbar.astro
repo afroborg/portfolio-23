@@ -1,8 +1,8 @@
 ---
 import Routes from '../../constants/routes';
 import Button from '../button.astro';
+import Logo from '../icons/logo.astro';
 import Link from '../link.astro';
-import OutlineText from '../outline-text.astro';
 
 const links = [
   {
@@ -33,20 +33,25 @@ const isActive = (href: string) => {
 };
 ---
 
-<header class="fixed top-0 left-0 right-0 px-6 md:px-12 py-8">
+<header
+  class="fixed top-0 left-0 right-0 px-6 md:px-12 py-6 z-[99] print:hidden"
+>
   <div class="flex items-center justify-between">
-    <a href={Routes.Home} class="text-5xl font-black flex">
-      <OutlineText>A</OutlineText>
+    <a href={Routes.Home} class="text-primary-yellow">
+      <span class="pointer-events-none w-16 aspect-square flex">
+        <Logo />
+      </span>
     </a>
 
     <nav class="gap-8 items-center text-sm hidden md:flex">
       {
-        links.map((link) => {
+        links.map((link, i) => {
           if (!link.isButton) {
             const active = isActive(link.href);
 
             return (
               <span
+                style={`--index: ${i};`}
                 class:list={[
                   {
                     'text-white/50': !active,
@@ -59,9 +64,29 @@ const isActive = (href: string) => {
             );
           }
 
-          return <Button href={link.href}>{link.title}</Button>;
+          return (
+            <span style={`--index: ${i};`}>
+              <Button href={link.href}>{link.title}</Button>
+            </span>
+          );
         })
       }
     </nav>
   </div>
 </header>
+
+<style class="scss">
+  span {
+    animation: slide-in-top 800ms calc((var(--index) * 200ms) + 300ms)
+      ease-in-out both;
+  }
+
+  @keyframes slide-in-top {
+    0% {
+      transform: translateY(-100px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+</style>
