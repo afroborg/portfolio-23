@@ -3,10 +3,10 @@ import constants from '../constants';
 
 type Props = {
   title?: string | undefined;
-  description?: string;
+  description?: string | undefined;
 };
 
-const { title, description } = Astro.props;
+const { title, description = constants.description } = Astro.props;
 ---
 
 <head>

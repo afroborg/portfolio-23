@@ -1,13 +1,8 @@
 ---
 import DefaultLayout from '../layouts/default-layout.astro';
 import Resume from '../components/resume/resume.astro';
-import constants from '../constants';
 ---
 
-<DefaultLayout
-  title="Resume"
-  description={constants.description}
-  class="print:py-0 pt-32"
->
+<DefaultLayout title="Resume" class="print:py-0 pt-32">
   <Resume />
 </DefaultLayout>
