@@ -49,7 +49,11 @@ const isActive = (href: string) => {
       for="menu-toggle"
       class="block md:hidden text-3xl cursor-pointer z-[99]"
     >
-      {new Array(3).fill(null).map(() => <span class="line" />)}
+      {
+        new Array(3)
+          .fill(null)
+          .map((_, i) => <span class="line" style={`--index: ${i};`} />)
+      }
     </label>
 
     <nav class="gap-8 items-center flex">
@@ -105,7 +109,7 @@ const isActive = (href: string) => {
     height: 3px;
   }
 
-  span:not(.line) {
+  span {
     animation: slide-in-from-top 800ms calc((var(--index) * 200ms) + 300ms)
       ease-in-out both;
   }
