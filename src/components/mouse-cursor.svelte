@@ -62,7 +62,7 @@
     background: theme('colors.white');
     animation: pulse 2s infinite;
     pointer-events: none;
-    transition: transform 0.2s ease;
+    transition: transform 0.5s ease;
     z-index: 9999;
   }
 
@@ -85,17 +85,5 @@
     height: 180%;
     border-radius: 50%;
     background: theme('colors.white / 30%');
-  }
-
-  @keyframes pulse {
-    0% {
-      transform: scale(var(--scale-start)) translate(-50%, -50%);
-    }
-    50% {
-      transform: scale(var(--scale-end)) translate(-50%, -50%);
-    }
-    100% {
-      transform: scale(var(--scale-start)) translate(-50%, -50%);
-    }
   }
 </style>

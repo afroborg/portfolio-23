@@ -1,0 +1,93 @@
+---
+import DefaultLayout from '../../layouts/default-layout.astro';
+import type { GetStaticPaths } from 'astro';
+import { CollectionEntry, getCollection } from 'astro:content';
+import ScrollSection from '../../components/scrolling/scroll-section.astro';
+import { Image } from '@astrojs/image/components';
+import GithubIcon from '../../components/icons/github-icon.astro';
+import LinkExternalIcon from '../../components/icons/link-external-icon.astro';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const projects = await getCollection('projects');
+
+  return await Promise.all(
+    projects.map(async (project) => ({
+      params: { slug: project.slug },
+      props: project,
+    }))
+  );
+};
+
+type Props = CollectionEntry<'projects'>;
+
+const { data, render } = Astro.props;
+const { title, image, url, github } = data;
+const { Content } = await render();
+---
+
+<DefaultLayout title={title} description="">
+  <ScrollSection class="max-w-6xl">
+    <div class="pt-32">
+      <Image
+        src={`/images/${image}`}
+        alt={title}
+        width={1920}
+        height={1200}
+        format="webp"
+        fit="cover"
+        position="top"
+        class="rounded-md image"
+      />
+
+      <div class="content">
+        <h1 class="text-4xl font-bold mt-8">{title}</h1>
+
+        <div class="flex gap-2 mt-2">
+          {
+            github && (
+              <a
+                href={github}
+                target="_blank"
+                rel="norferrer"
+                class="hover:text-primary-yellow"
+              >
+                <span class="pointer-events-none w-5 aspect-square flex">
+                  <GithubIcon />
+                </span>
+              </a>
+            )
+          }
+
+          {
+            url && (
+              <a
+                href={url}
+                target="_blank"
+                rel="norferrer"
+                class="hover:text-primary-yellow"
+              >
+                <span class="pointer-events-none w-5 aspect-square flex">
+                  <LinkExternalIcon />
+                </span>
+              </a>
+            )
+          }
+        </div>
+
+        <div class="md-content mt-4 max-w-4xl">
+          <Content />
+        </div>
+      </div>
+    </div>
+  </ScrollSection>
+</DefaultLayout>
+
+<style lang="scss">
+  .image {
+    animation: slide-in-from-bottom 0.5s ease-in-out both;
+  }
+
+  .content {
+    animation: slide-in-from-bottom 0.5s 400ms ease-in-out both;
+  }
+</style>

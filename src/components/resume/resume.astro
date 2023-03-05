@@ -45,10 +45,10 @@ import Link from '../link.astro';
 
         <div class="text-sm space-y-2">
           <p>{constants.location}</p>
-          <p>
+          <p class="text-primary-yellow">
             <Link href={`tel:${constants.phone}`}>{constants.phone}</Link>
           </p>
-          <p>
+          <p class="text-primary-yellow">
             <Link href={`mailto:${constants.email}`}>{constants.email}</Link>
           </p>
         </div>
@@ -56,7 +56,7 @@ import Link from '../link.astro';
       <div>
         <h4 class="font-semibold pb-3">Links</h4>
 
-        <div class="text-sm space-y-2">
+        <div class="text-sm space-y-2 text-primary-yellow">
           <p>
             <Link href={constants.github}>GitHub</Link>
           </p>

@@ -4,6 +4,8 @@ import MouseCursor from '../components/mouse-cursor.svelte';
 import '@fontsource/outfit/800.css';
 import Meta from '../components/meta.astro';
 import BottomInfo from '../components/layout/bottom-info.astro';
+import BottomCta from '../components/layout/bottom-cta.astro';
+import '../styles/main.scss';
 
 type Props = {
   title?: string;
@@ -14,14 +16,16 @@ type Props = {
 const { title, description, class: className = '' } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <Meta title={title} description={description} />
 
   <body class="bg-primary-black text-white">
     <Navbar />
 
-    <main class:list={[className, 'pb-12']}>
+    <main class:list={[className, 'pb-24']}>
       <slot />
+
+      <BottomCta />
     </main>
 
     <BottomInfo />
@@ -41,29 +45,6 @@ const { title, description, class: className = '' } = Astro.props;
         html {
           font-size: 0.9rem;
         }
-      }
-    </style>
-
-    <style is:global>
-      .md-content ul {
-        list-style: disc;
-        padding-left: 1rem;
-      }
-
-      .md-content ul li:not(:last-child) {
-        margin-bottom: 0.25rem;
-      }
-
-      .md-content a {
-        @apply text-primary-yellow hover:underline print:text-black;
-      }
-
-      .md-content strong {
-        @apply font-medium;
-      }
-
-      .vm-rl {
-        writing-mode: vertical-rl;
       }
     </style>
   </body>

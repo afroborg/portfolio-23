@@ -23,12 +23,12 @@ import ScrollSection from '../../scrolling/scroll-section.astro';
       </h1>
 
       <p
-        class="opacity-70 text-sm md:text-lg max-w-lg"
+        class="text-white/70 text-sm md:text-lg max-w-lg"
         data-slide
         style="--delay: 800ms"
       >
-        I'm a {constants.title}. Let's build some products that your clients
-        love to use!
+        I'm a {constants.title} based in Lund, Sweden. Let's build something cool
+        together!
       </p>
     </div>
 
@@ -41,18 +41,7 @@ import ScrollSection from '../../scrolling/scroll-section.astro';
 <style lang="scss">
   [data-slide] {
     display: block;
-    animation: slide-in-up 1s var(--delay) cubic-bezier(0.25, 0.46, 0.45, 0.94)
-      both;
-  }
-
-  @keyframes slide-in-up {
-    0% {
-      transform: translateY(50px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
+    animation: slide-in-from-bottom 1s var(--delay)
+      cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
 </style>

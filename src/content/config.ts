@@ -29,6 +29,8 @@ const projectCollection = defineCollection({
     image: z.string(),
     featured: z.boolean().default(false),
     sort: z.number().default(0),
+    url: z.string(),
+    github: z.string().optional(),
   }),
 });
 

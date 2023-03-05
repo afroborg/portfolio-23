@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import Project from '../../components/feature/start/project.astro';
+import ScrollSection from '../../components/scrolling/scroll-section.astro';
+import DefaultLayout from '../../layouts/default-layout.astro';
+
+const projects = await getCollection('projects');
+const p = projects.sort((a, b) => b.data.sort - a.data.sort);
+---
+
+<DefaultLayout title="Projects" description="">
+  <ScrollSection class="max-w-7xl pt-32">
+    <h1 class="text-3xl font-semibold mb-8 font-header">Projects</h1>
+
+    <div class="grid grid-cols-2 gap-x-4 gap-y-8">
+      {
+        p.map((p, i) => (
+          <div class="project" style={`--index: ${i}`}>
+            <Project {...p.data} slug={p.slug} />
+          </div>
+        ))
+      }
+    </div>
+  </ScrollSection>
+</DefaultLayout>
+
+<style lang="scss">
+  .project {
+    animation: slide-in-from-bottom 500ms calc(var(--index) * 200ms) ease-in-out
+      both;
+  }
+</style>

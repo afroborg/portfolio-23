@@ -1,0 +1,36 @@
+.md-content :where(h1, h2, h3, h4, h5) {
+  @apply font-bold py-3;
+}
+
+.md-content h2 {
+  @apply text-2xl;
+}
+
+.md-content h3 {
+  @apply text-xl;
+}
+
+.md-content h4 {
+  @apply text-lg;
+}
+
+.md-content ul {
+  list-style: disc;
+  padding-left: 1rem;
+}
+
+.md-content ul li:not(:last-child) {
+  margin-bottom: 0.25rem;
+}
+
+.md-content a {
+  @apply text-primary-yellow hover:underline print:text-black;
+}
+
+.md-content strong {
+  @apply font-medium;
+}
+
+.vm-rl {
+  writing-mode: vertical-rl;
+}

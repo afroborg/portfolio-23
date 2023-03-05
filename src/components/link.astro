@@ -14,7 +14,10 @@ const isInternal = href.startsWith('/');
 <a
   href={href}
   target={!isInternal ? '_blank' : null}
-  class:list={['flex items-center gap-2 print:text-black', className]}
+  class:list={[
+    'flex items-center gap-2 print:text-black hover:underline',
+    className,
+  ]}
 >
   <slot />
 

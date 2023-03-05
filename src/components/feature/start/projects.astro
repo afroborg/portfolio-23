@@ -1,7 +1,5 @@
 ---
 import { getCollection } from 'astro:content';
-import Routes from '../../../constants/routes';
-import Button from '../../button.astro';
 import ScrollSection from '../../scrolling/scroll-section.astro';
 import Project from './project.astro';
 
@@ -10,14 +8,10 @@ const p = projects.sort((a, b) => b.data.sort - a.data.sort).slice(0, 4);
 ---
 
 <ScrollSection id="projects" class="max-w-6xl">
-  <h2 class="text-4xl font-black font-header">Projects</h2>
+  <h2 class="text-4xl font-black font-header">Featured projects</h2>
 
   <div class="grid grid-cols-2 mt-8 gap-x-4 gap-y-8">
     {p.map((c) => <Project {...c.data} slug={c.slug} />)}
-  </div>
-
-  <div class="mt-8 flex justify-center">
-    <Button href={Routes.Projects}>Explore all projects</Button>
   </div>
 </ScrollSection>
 
