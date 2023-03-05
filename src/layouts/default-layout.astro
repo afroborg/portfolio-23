@@ -1,10 +1,19 @@
 ---
+import Navbar from '../components/navbar.astro';
+// import MouseCursor from '../components/mouse-cursor.svelte';
+import constants from '../constants';
+import '@fontsource/outfit/800.css';
+import FixedInfo from '../components/fixed-info.astro';
+import GithubIcon from '../components/icons/github-icon.astro';
+import LinkedinIcon from '../components/icons/linkedin-icon.astro';
+
 type Props = {
-  title: string;
+  title?: string;
   description: string;
+  class?: string;
 };
 
-const { title, description } = Astro.props;
+const { title, description, class: className = '' } = Astro.props;
 ---
 
 <html lang="en">
@@ -14,38 +23,64 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link
       rel="preload"
-      href="/font.woff2"
+      href="/fonts/hubot-sans.woff2"
       as="font"
       type="font/woff2"
       crossorigin
     />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>
+      {title ? `${title} | ` : ''}{constants.name} - {constants.title}
+    </title>
     <meta name="description" content={description} />
   </head>
-  <body class="bg-zinc-100">
-    <div class="py-4 md:py-8 print:py-0">
+  <body class="bg-primary-black text-white">
+    <Navbar />
+
+    <main class:list={[className, 'px-6 md:px-24']}>
       <slot />
+    </main>
+
+    <!-- <div class="h-[200vh]"></div> -->
+
+    <div
+      class="fixed bottom-0 px-24 hidden md:flex items-end justify-between left-0 right-0 text-sm"
+    >
+      <FixedInfo>
+        <div class="h-5 w-5">
+          <GithubIcon />
+        </div>
+        <div class="h-5 w-5">
+          <LinkedinIcon />
+        </div>
+      </FixedInfo>
+
+      <FixedInfo>
+        <a
+          href={`mailto:${constants.email}`}
+          target="_blank"
+          class="vm-rl text-white/60 hover:text-primary-yellow tracking-wider font-light"
+        >
+          {constants.email}
+        </a>
+      </FixedInfo>
     </div>
+
+    <!-- <MouseCursor client:idle /> -->
   </body>
 </html>
 
 <style>
   @font-face {
-    font-family: 'Mona Sans';
-    src: url('/font.woff2') format('woff2');
+    font-family: 'Hubot Sans';
+    src: url('/fonts/hubot-sans.woff2') format('woff2');
     font-weight: 200 900;
     font-stretch: 75% 125%;
     font-display: swap;
   }
 
-  html {
-    font-family: 'Mona Sans', sans-serif;
-  }
-
   @media print {
     html {
-      font-family: 'Mona Sans', sans-serif;
       font-size: 0.9rem;
     }
   }
@@ -62,10 +97,14 @@ const { title, description } = Astro.props;
   }
 
   .md-content a {
-    @apply text-purple-500 hover:underline print:text-black;
+    @apply text-primary-yellow hover:underline print:text-black;
   }
 
   .md-content strong {
     @apply font-medium;
+  }
+
+  .vm-rl {
+    writing-mode: vertical-rl;
   }
 </style>

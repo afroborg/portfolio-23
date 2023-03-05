@@ -1,0 +1,30 @@
+---
+type Props = {
+  href?: string;
+};
+
+const { href } = Astro.props;
+---
+
+{
+  href ? (
+    <a href={href}>
+      <slot />
+    </a>
+  ) : (
+    <button>
+      <slot />
+    </button>
+  )
+}
+
+<style lang="scss">
+  a,
+  button {
+    @apply flex items-center border border-primary-yellow py-2.5 px-5 text-primary-yellow rounded-sm transition-all font-medium;
+
+    &:hover {
+      @apply bg-primary-yellow/10;
+    }
+  }
+</style>

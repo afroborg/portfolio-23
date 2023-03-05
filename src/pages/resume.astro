@@ -2,8 +2,24 @@
 import DefaultLayout from '../layouts/default-layout.astro';
 import Resume from '../components/resume/resume.astro';
 import constants from '../constants';
+import ChevronIcon from '../components/icons/chevron-icon.astro';
+import Routes from '../constants/routes';
 ---
 
-<DefaultLayout title="Resume" description={constants.description}>
+<DefaultLayout
+  title="Resume"
+  description={constants.description}
+  class="py-8 print:py-0"
+>
+  <a
+    href={Routes.Home}
+    class="flex gap-2 items-center max-w-5xl mx-auto text-sm mb-4 print:hidden"
+  >
+    <span class="h-1.5 aspect-square mb-1.5">
+      <ChevronIcon />
+    </span>
+    Back home
+  </a>
+
   <Resume />
 </DefaultLayout>

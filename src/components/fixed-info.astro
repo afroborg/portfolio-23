@@ -1,0 +1,16 @@
+---
+---
+
+<div class="flex flex-col items-center justify-center gap-4">
+  <slot />
+</div>
+
+<style lang="scss">
+  div::after {
+    content: '';
+    height: 120px;
+    width: 1px;
+    background-color: theme('colors.white / 50%');
+    display: block;
+  }
+</style>

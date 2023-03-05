@@ -3,9 +3,10 @@ import LinkExternalIcon from './icons/link-external-icon.astro';
 
 type Props = {
   href: string;
+  class?: string;
 };
 
-const { href } = Astro.props;
+const { href, class: className } = Astro.props;
 
 const isInternal = href.startsWith('/');
 ---
@@ -13,7 +14,7 @@ const isInternal = href.startsWith('/');
 <a
   href={href}
   target={!isInternal ? '_blank' : null}
-  class="text-purple-600 flex items-center gap-2 hover:underline print:text-black"
+  class:list={['flex items-center gap-2 print:text-black', className]}
 >
   <slot />
 

@@ -1,0 +1,40 @@
+---
+type Props = {
+  direction?: 'left' | 'right' | 'up' | 'down';
+};
+
+const { direction = 'left' } = Astro.props;
+---
+
+<svg viewBox="0 0 8 14" fill="none" class:list={direction}>
+  <path
+    d="M7 13L1 7L7 1"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+  </path>
+</svg>
+
+<style lang="scss">
+  path {
+    stroke: currentColor;
+  }
+
+  svg {
+    --rotation: 0deg;
+    transform: rotate(var(--rotation, 0deg));
+
+    &.right {
+      --rotation: 180deg;
+    }
+
+    &.up {
+      --rotation: 90deg;
+    }
+
+    &.down {
+      --rotation: 270deg;
+    }
+  }
+</style>
