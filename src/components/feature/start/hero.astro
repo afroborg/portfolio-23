@@ -3,9 +3,12 @@ import constants from '../../../constants';
 import Routes from '../../../constants/routes';
 import Button from '../../button.astro';
 import ScrollSection from '../../scrolling/scroll-section.astro';
+import GradientBg from './gradient-bg.svelte';
 ---
 
 <ScrollSection class="max-w-4xl">
+  <GradientBg client:idle />
+
   <div class="space-y-8">
     <div class="space-y-2">
       <span
