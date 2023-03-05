@@ -43,7 +43,16 @@ const isActive = (href: string) => {
       </span>
     </a>
 
-    <nav class="gap-8 items-center text-sm hidden md:flex">
+    <input type="checkbox" class="hidden" id="menu-toggle" />
+
+    <label
+      for="menu-toggle"
+      class="block md:hidden text-3xl cursor-pointer z-[99]"
+    >
+      {new Array(3).fill(null).map(() => <span class="line" />)}
+    </label>
+
+    <nav class="gap-8 items-center flex">
       {
         links.map((link, i) => {
           if (!link.isButton) {
@@ -75,9 +84,46 @@ const isActive = (href: string) => {
   </div>
 </header>
 
-<style class="scss">
-  span {
+<style lang="scss">
+  nav {
+    --transform-x: 150%;
+    transform: translateX(var(--transform-x));
+    transition: transform 300ms ease-in-out;
+
+    @apply absolute top-0 h-[100dvh] w-screen bg-primary-black px-8 py-24 flex-col text-base;
+
+    @screen md {
+      --transform-x: 0;
+
+      @apply relative h-auto w-auto p-0 flex-row bg-transparent;
+    }
+  }
+
+  span.line {
+    @apply block bg-white mb-1 rounded-sm transition-all;
+    width: 24px;
+    height: 3px;
+  }
+
+  span:not(.line) {
     animation: slide-in-from-top 800ms calc((var(--index) * 200ms) + 300ms)
       ease-in-out both;
+  }
+
+  input[type='checkbox']:checked ~ nav {
+    --transform-x: calc(theme('spacing.6') * -1);
+  }
+
+  input[type='checkbox']:checked ~ label {
+    span.line:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    span.line:nth-child(2) {
+      opacity: 0;
+    }
+
+    span.line:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
   }
 </style>
