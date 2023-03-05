@@ -1,9 +1,10 @@
 ---
 type Props = {
   href: string;
+  title: string;
 };
 
-const { href } = Astro.props;
+const { href, title } = Astro.props;
 ---
 
 <a
@@ -11,6 +12,7 @@ const { href } = Astro.props;
   target="_blank"
   rel="noreferrer"
   class="h-5 w-5 text-white/70 hover:text-primary-yellow"
+  aria-label={title}
 >
   <span class="pointer-events-none">
     <slot />
