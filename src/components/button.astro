@@ -10,10 +10,12 @@ const { href } = Astro.props;
   href ? (
     <a href={href}>
       <slot />
+      <slot name="icon" />
     </a>
   ) : (
     <button>
       <slot />
+      <slot name="icon" />
     </button>
   )
 }
@@ -21,7 +23,7 @@ const { href } = Astro.props;
 <style lang="scss">
   a,
   button {
-    @apply flex items-center border border-primary-yellow py-2.5 px-5 text-primary-yellow rounded-sm transition-all font-medium w-fit;
+    @apply flex items-center border border-primary-yellow py-2.5 px-5 text-primary-yellow rounded-sm transition-all font-medium w-fit gap-2;
 
     &:hover {
       @apply bg-primary-yellow/10;

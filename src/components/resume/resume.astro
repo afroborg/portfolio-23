@@ -8,13 +8,14 @@ import Internships from './internships.astro';
 import Education from './education.astro';
 import Profile from './profile.astro';
 import Link from '../link.astro';
+import { Static } from '../../constants/routes';
 ---
 
 <Page>
   <div class="flex items-start gap-8 flex-col md:flex-row md:items-center">
     <div class="h-24 aspect-square rounded-md bg-gray-100 print:h-16">
       <Image
-        src="/me.png"
+        src={Static.Me}
         alt="Me"
         height={1024}
         width={1024}

@@ -6,6 +6,7 @@ import ScrollSection from '../../components/scrolling/scroll-section.astro';
 import { Image } from '@astrojs/image/components';
 import GithubIcon from '../../components/icons/github-icon.astro';
 import LinkExternalIcon from '../../components/icons/link-external-icon.astro';
+import { Static } from '../../constants/routes';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const projects = await getCollection('projects');
@@ -29,7 +30,7 @@ const { Content } = await render();
   <ScrollSection class="max-w-6xl">
     <div class="pt-32">
       <Image
-        src={`/images/${image}`}
+        src={Static.ProjectImage(image)}
         alt={title}
         width={1920}
         height={1200}

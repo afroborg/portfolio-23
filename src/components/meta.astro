@@ -1,5 +1,6 @@
 ---
 import constants from '../constants';
+import { Static } from '../constants/routes';
 
 type Props = {
   title?: string | undefined;
@@ -11,11 +12,11 @@ const { title, description = constants.description } = Astro.props;
 
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="icon" type="image/png" href={Static.Favicon} />
   <meta name="viewport" content="width=device-width" />
   <link
     rel="preload"
-    href="/fonts/hubot-sans.woff2"
+    href={Static.SansFont}
     as="font"
     type="font/woff2"
     crossorigin

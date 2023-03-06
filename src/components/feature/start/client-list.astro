@@ -1,0 +1,22 @@
+---
+const clientFiles = import.meta.glob('../../icons/clients/*.astro');
+
+const clients = await Promise.all(
+  Object.keys(clientFiles).map(async (path) => {
+    const { default: component } = await clientFiles[path]();
+    return component;
+  })
+);
+---
+
+<div
+  class="flex flex-wrap max-w-7xl mx-auto w-full gap-24 py-24 justify-center"
+>
+  {
+    clients.map((Client) => (
+      <div class="h-[72px] flex opacity-50 max-w-[162px] hover:opacity-100 transition-all">
+        <Client />
+      </div>
+    ))
+  }
+</div>

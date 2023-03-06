@@ -1,6 +1,6 @@
 ---
 import { Image } from '@astrojs/image/components';
-import Routes from '../../../constants/routes';
+import Routes, { Static } from '../../../constants/routes';
 
 type Props = {
   image: string;
@@ -28,7 +28,7 @@ const width = height * aspectRatio;
   </div>
 
   <Image
-    src={`/images/${image}`}
+    src={Static.ProjectImage(image)}
     alt={title}
     height={height}
     width={width}

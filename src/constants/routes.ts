@@ -10,4 +10,12 @@ class Routes {
   static readonly Contact = `mailto:${constants.email}`;
 }
 
+export class Static {
+  static readonly Favicon = '/favicon.png';
+  static readonly Me = '/images/me.png';
+  static readonly SansFont = '/fonts/hubot-sans.woff2';
+  static readonly ProjectImage = (slug: string) => `/images/projects/${slug}`;
+  static readonly ClientImage = (slug: string) => `/images/clients/${slug}`;
+}
+
 export default Routes;
