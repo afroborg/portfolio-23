@@ -4,7 +4,7 @@ company: 'Lunds Tekniska Högskola'
 start: August 2020
 ---
 
-*Expected graduation: August 2025*
+*Expected graduation: June 2025*
 
 **Swe**: Civilingenjörsexamen i Elektroteknik.
 
