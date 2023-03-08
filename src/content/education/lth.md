@@ -1,7 +1,7 @@
 ---
 title: 'M.Sc. Electrical Engineering'
 company: 'Lunds Tekniska Högskola'
-start: August 2018
+start: August 2020
 ---
 
 *Expected graduation: August 2025*
