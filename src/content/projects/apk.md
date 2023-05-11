@@ -7,7 +7,7 @@ url: https://apk.axel.froborg.com
 github: https://github.com/afroborg/apk-front
 ---
 
-## Track the best alcohol per swedish krona at [Systembolaget](https://systembolaget.se).
+## Track the best alcohol per swedish krona at [Systembolaget](https://systembolaget.se)
 
 ### Features
 

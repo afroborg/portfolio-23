@@ -6,7 +6,7 @@ sort: 98
 url: https://esek.se/auth/log-in
 ---
 
-## A single sign-on solution for E-Sektionen.
+## A single sign-on solution for E-Sektionen
 
 By adhearing to the OAuth2 standard, E-Sektionen SSO allows users to sign in to multiple services with a single account.
 
