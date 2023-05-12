@@ -6,5 +6,5 @@ end: August 2020
 technologies: ['Vue', 'Typescript', 'C#', '.NET']
 ---
 
-- Provided guidance to developers on API design and integration of API connections between CDON and merchants.
-- Responsible for maintaining documentation related to these integrations.
+- Offered guidance to developers regarding API design and integration of API connections between CDON and merchants.
+- Maintained documentation relevant to the aforementioned integrations.

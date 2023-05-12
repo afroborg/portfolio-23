@@ -20,5 +20,5 @@ technologies:
 
 - Responsible for infrastructure and development in the guild.
 - Rebuilt [esek.se](https://esek.se) using SvelteKit and TailwindCSS.
-- Developed backend microservices using various technologies such as Node.js, Go, and Rust.
-- Created a custom OAuth2 server for authentication and authorization.
+- Produced backend microservices with an assortment of technologies including Node.js, Go, and Rust.
+- Constructed a customized OAuth2 server for authentication and authorization purposes.
